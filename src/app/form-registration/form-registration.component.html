@@ -1,0 +1,44 @@
+<p-toast></p-toast>
+
+<p-panel header="Create a new account">
+  <p>
+    <label for="email">Email:</label>
+  </p>
+
+  <input id="email" type="text" [(ngModel)]="email" placeholder="Email" [ngClass]="{'ng-invalid ng-dirty': hasEmail === false }" pInputText>
+  <p>
+    <label for="password">Password</label>
+  </p>
+  <p-password [(ngModel)]="password" id="password" (onBlur)="checkPasword()" placeholder="Password" [ngClass]="{'ng-invalid ng-dirty': hasPassword === false}">
+    <ng-template pTemplate="header">
+      <h6>Enter a password</h6>
+    </ng-template>
+  </p-password>
+  <p>
+    <label for="password2">Confirm your password</label>
+  </p>
+  <p-password [(ngModel)]="password2" id="password2" [feedback]="false" (onBlur)="confirmPassword()" [ngClass]="{'ng-invalid ng-dirty': passwordMatch === false}"
+              placeholder="Confirm your password"></p-password>
+
+  <p>
+    <label for="title">Title:</label>
+  </p>
+  <p-dropdown id="title" [options]="titles" [(ngModel)]="title" optionLabel="name"></p-dropdown>{{title.code}}
+
+  <p>
+    <label for="first">First name:</label>
+  </p>
+
+  <input id="first" type="text" [(ngModel)]="firstName"  [ngClass]="{'ng-invalid ng-dirty': hasFirst === false}" placeholder="First name" pInputText>
+
+  <p>
+    <label for="last">Last name:</label>
+  </p>
+
+  <input id="last" type="text" [(ngModel)]="lastName" placeholder="Last name"  [ngClass]="{'ng-invalid ng-dirty': hasLast === false}" pInputText>
+
+  <p>
+    <p-button  label="Create a new account" (onClick)="register()" ></p-button>
+  </p>
+</p-panel>
+

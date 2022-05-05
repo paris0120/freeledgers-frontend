@@ -1,0 +1,21 @@
+<p-toast></p-toast>
+
+<p-panel header="Log into your account">
+  <p>
+    <label for="email">Email:</label>
+  </p>
+
+  <input id="email" type="text" [(ngModel)]="email" placeholder="Email" [ngClass]="{'ng-invalid ng-dirty': hasEmail === false }" pInputText>
+  <p>
+    <label for="password">Password</label>
+  </p>
+  <p-password [(ngModel)]="password" id="password" [feedback]="falsye" placeholder="Password" [ngClass]="{'ng-invalid ng-dirty': hasPassword === false}">
+    <ng-template pTemplate="header">
+      <h6>Enter a password</h6>
+    </ng-template>
+  </p-password>
+
+  <p>
+    <p-button  label="Log in" (onClick)="login()" ></p-button>
+  </p>
+</p-panel>
